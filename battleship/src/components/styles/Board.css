@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
 td {
     width: 30px;
     height: 30px;
@@ -11,10 +13,41 @@ td {
   input[type="number"] {
     width: 50px;
   }
+    
+  button{
   
-  button {
-    margin-left: 10px;
+  font-family: Bebas Neue;
+  font-weight: 650;
+  font-size: 25px;
+  color: #ededed;
+  background: linear-gradient(90deg, #ffd900 15%, #d62828 100%);
+  padding: 5px 25px;
+  border: solid #000000 2px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 50px;
+  transition : 274ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: max-content;
+  margin:auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
   }
+  
+  button:hover{
+  
+  transition : 274ms;
+  padding: 10px 50px;
+  transform : translateY(-0px);
+  background: linear-gradient(90deg, #ffd900 15%, #d62828 100%);
+  color: #000000;
+  border: solid 2px #ff0000;
+  }
+
   #title{
     font-size: 80px;
     font-weight: 800;
@@ -28,6 +61,31 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    padding-bottom: 80px;
+    max-height: 80%;
+    overflow: auto;
  }
- 
+ .board .cell {
+  opacity: 0.5;
+}
+
+#lost{
+  font-size: 80px;
+  font-weight: 800;
+  padding-top: 50px;
+  width: max-content;
+  margin:auto;
+  color: red;
+}
+
+
+#size{
+  width: max-content;
+  margin:auto;
+}
+
+ /* .board .cell {
+  width: 40px;
+  height: 40px;
+} */
+

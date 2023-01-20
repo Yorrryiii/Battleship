@@ -145,7 +145,7 @@ function Battleship() {
       if (gameWon) {
         return <p>You won!</p>;
       } else {
-        return <p>You lost.</p>;
+        return <p id='lost'>You lost.</p>;
       }
     }
   }
@@ -153,7 +153,7 @@ function Battleship() {
   return (
     <div>
       <h1 id='title'>Battleship</h1>
-      <p>
+      <p id='size'>
         Board size:
         <input
           type="number"

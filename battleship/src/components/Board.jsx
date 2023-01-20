@@ -107,31 +107,35 @@ function Battleship() {
   // Render the board
   const renderBoard = () => {
     return (
-      <table>
-        <tbody>
-          {board.map((row, x) => {
-            return (
-              <tr key={x}>
-                {row.map((cell, y) => {
-                  let color;
-                  if (cell === 'hit') color = 'green';
-                  else if (cell === 'miss') color = 'blue';
-                  return (
-                    <td
-                      key={y}
-                      onClick={() => handleCellClick(x, y)}
-                      style={{
-                        backgroundColor: color,
-                        cursor: gameOver || cell !== null ? 'default' : 'pointer'
-                      }}
-                    ></td>
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="board-container">
+        <div className="board">
+          <table>
+            <tbody>
+              {board.map((row, x) => {
+                return (
+                  <tr key={x}>
+                    {row.map((cell, y) => {
+                      let color;
+                      if (cell === 'hit') color = 'green';
+                      else if (cell === 'miss') color = 'blue';
+                      return (
+                        <td
+                          key={y}
+                          onClick={() => handleCellClick(x, y)}
+                          style={{
+                            backgroundColor: color,
+                            cursor: gameOver || cell !== null ? 'default' : 'pointer'
+                          }}
+                        ></td>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
     );
   }
 
@@ -157,7 +161,7 @@ function Battleship() {
           onChange={(e) => setBoardSize(Number(e.target.value))}
           min={5}
         />
-        <button onClick={startGame}>Start game</button>
+        <button class="btn" onClick={startGame}>Start game</button>
       </p>
       {renderBoard()}
       {renderGameStatus()}
@@ -166,4 +170,3 @@ function Battleship() {
 }
 
 export default Battleship;
-

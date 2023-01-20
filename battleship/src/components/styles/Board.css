@@ -16,10 +16,18 @@ td {
     margin-left: 10px;
   }
   #title{
-    font-size: 60px;
-    padding-top: 80px;
+    font-size: 80px;
+    font-weight: 800;
+    padding-top: 50px;
     width: max-content;
     margin:auto;
     font-family: 'Poppins','Open Sans', sans-serif;
   }
   
+  .board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+ }
+ 

@@ -60,6 +60,50 @@ function Battleship() {
   }
 
   // Function to handle cell clicks
+  // const handleCellClick = (x, y) => {
+  //   // Do nothing if the game is over or the cell has already been clicked
+  //   if (gameOver || board[x][y] !== null) return;
+
+  //   // Check if the cell contains a ship
+  //   let cellContainsShip = false;
+  //   ships.forEach((ship) => {
+  //     ship.forEach((cell) => {
+  //       if (cell.x === x && cell.y === y) {
+  //         cellContainsShip = true;
+  //       }
+  //     });
+  //   });
+
+  //   // Update the board with the result of the guess
+  //   const newBoard = [...board];
+  //   if (cellContainsShip) {
+  //     newBoard[x][y] = 'hit';
+  //   } else {
+  //     newBoard[x][y] = 'miss';
+  //     setAttempts(attempts + 1);
+  //   }
+  //   setBoard(newBoard);
+
+  //   // Check if the player has won or lost
+  //   let allShipsSunk = true;
+  //   ships.forEach((ship) => {
+  //     let shipSunk = true;
+  //     ship.forEach((cell) => {
+  //       if (board[cell.x][cell.y] !== 'hit') {
+  //         shipSunk = false;
+  //       }
+  //     });
+  //     if (!shipSunk) allShipsSunk = false;
+  //   });
+  //   if (allShipsSunk) {
+  //     setGameOver(true);
+  //     setGameWon(true);
+  //   } else if (attempts >= boardSize / 2) {
+  //     setGameOver(true);
+  //     setGameWon(false);
+  //   }
+  // }
+
   const handleCellClick = (x, y) => {
     // Do nothing if the game is over or the cell has already been clicked
     if (gameOver || board[x][y] !== null) return;
@@ -98,11 +142,19 @@ function Battleship() {
     if (allShipsSunk) {
       setGameOver(true);
       setGameWon(true);
-    } else if (attempts >= boardSize / 2) {
-      setGameOver(true);
-      setGameWon(false);
+    } else {
+      const totalCells = boardSize * boardSize;
+      const occupiedCells = ships.flat().length;
+      const totalGuessesAllowed = (totalCells - occupiedCells) / 2;
+    
+      if (attempts >= totalGuessesAllowed) {
+        setGameOver(true);
+        setGameWon(false);
+      }
     }
-  }
+    
+}
+
 
   // Render the board
   const renderBoard = () => {
